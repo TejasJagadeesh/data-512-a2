@@ -73,6 +73,52 @@ ORES provides probability estimates for each of the following 6 categories. The 
 
 While using the API, we specify the project as 'enwiki' and model as 'wp10' which uses structural characteristics to provide predictions. The API takes as input a set of revision IDs seprated by "|" character. It is recommended to fetch in batches of 50 revision ids at a time.
 
-Sample request with two revision ids (34854345, 485104318) looks like below:
-https://ores.wikimedia.org/v3/scores/{project}/?models={model}&revids=34854345|485104318
+Sample request with two revision ids (34854345, 485104318), project as 'enwiki' and model as 'wp10' looks like below:
+
+https://ores.wikimedia.org/v3/scores/enwiki/?models=wp10&revids=34854345|485104318
+
+Sample response for the above request looks like below:
+
+{
+  "enwiki": {
+    "models": {
+      "wp10": {
+        "version": "0.6.1"
+      }
+    },
+    "scores": {
+      "34854345": {
+        "wp10": {
+          "score": {
+            "prediction": "FA",
+            "probability": {
+              "B": 0.22322826391917108,
+              "C": 0.02086552236039792,
+              "FA": 0.727835633467006,
+              "GA": 0.010004753389648268,
+              "Start": 0.0161698481518677,
+              "Stub": 0.001895978711909182
+            }
+          }
+        }
+      },
+      "485104318": {
+        "wp10": {
+          "score": {
+            "prediction": "Stub",
+            "probability": {
+              "B": 0.006687915236839397,
+              "C": 0.011853353376349855,
+              "FA": 0.0007003464421344177,
+              "GA": 0.0017530069896292625,
+              "Start": 0.051243552848899025,
+              "Stub": 0.927761825106148
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 
