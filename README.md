@@ -147,7 +147,8 @@ data-512-a2/
     |- table1.jpg          // Analysis output - table 1
     |- table2.jpg          // Analysis output - table 2
     |- table3.jpg          // Analysis output - table 3
-    |- table4.jpg          // Analysis output - table 4
+    |- table4a.jpg         // Analysis output - table 4 (partial)
+    |- table4b.jpg         // Analysis output - table 4 (partial)
     |- table5.jpg          // Analysis output - table 5
     |- visualization.jpg   // Visuaization for analysis of countries with most articles
     |- README.md
@@ -187,7 +188,8 @@ data-512-a2/
  
  **Table 4:** All lowest-ranked countries in terms of no. of GA and FA-quality articles as a proportion of all articles about politicians from that country
  
- ![](https://github.com/TejasJagadeesh/data-512-a2/blob/master/table4.jpg)
+![](https://github.com/TejasJagadeesh/data-512-a2/blob/master/table4a.jpg)
+![](https://github.com/TejasJagadeesh/data-512-a2/blob/master/table4b.jpg)
  
  **Observations:**
  
