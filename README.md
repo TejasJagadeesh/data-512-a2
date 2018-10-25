@@ -1,5 +1,4 @@
-# data-512-a2
-DATA-512-HUMAN CENTERED DATA SCIENCE - ASSIGNMENT 2 - BIAS IN DATA
+# Data 512 (Human Centered Data Science) Assignment 2 - Bias in Data
 
 # Goal of the Project
 Goals of this project as stated in assignment link here - https://wiki.communitydata.cc/Human_Centered_Data_Science_(Fall_2018)/Assignments#A2:_Bias_in_data are:
