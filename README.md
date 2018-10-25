@@ -60,7 +60,7 @@ From the Source link, I downloaded the csv file "WPDS_2018_data.csv". As part of
 **Code to Reproduce the Data:** The data can be downloaded as csv file from the link http://www.worldpopdata.org/table by selecting all countries in the filters.
 
 ## 3) Page Quality Score
-We use Wikimedia REST API to access ORES (Objective Revision Evaluation Service) web service which is based on machine learning. All details about ORES can be found here - https://www.mediawiki.org/wiki/ORES and additional links in this page.
+We use Wikimedia REST API to access ORES (Objective Revision Evaluation Service) web service which is based on machine learning. All details about ORES can be found here - https://www.mediawiki.org/wiki/ORES and https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_context_revid_model and in the embedded links in these pages.
 
 ORES provides probability estimates for each of the following 6 categories. The category with the highest probability is returned as the score. The API also returns probabilities for all the categories. The following categories are ordered from best to worst.
 
