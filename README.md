@@ -133,6 +133,7 @@ As part of the analysis, page quality score is fetched for each of the revision 
 - article_quality - quality scores fetched using the ORES Wikimedia REST API for each of the revision ids.
 - population - population data in millions upto mid 2018 as mentioned in the population dataset.
 
+Code to reproduce this output document is available in the jupyter notebook "hcds-a2-bias.ipynb" along with comments.
 
 # Directory Structure
 ```
@@ -154,6 +155,8 @@ data-512-a2/
  ```
  
  # Analysis
+ 
+ Code for all the analysis performed below is documented in the jupyter notebook "hcds-a2-bias.ipynb" along with comments.
  
  **Table 1:** 10 highest-ranked countries in terms of no. of politician articles as a proportion of country population
  
