@@ -159,4 +159,58 @@ data-512-a2/
  
  ![](https://github.com/TejasJagadeesh/data-512-a2/blob/master/table1.jpg)
  
+ **Observations:**
  
+- As expected, the countries with lower populations were going to be on top as having just a few articles would significantly boost the proportion which is computed as a percentage. Though I didn't expect to see countries like Tuvalu and Nauru which I had not heard of until now. Proportion based on overall population is probabaly not the best way to analyze this data.
+- Iceland appears to pop out of this list above with highest no. of articles.
+
+**Table 2:** 10 lowest-ranked countries in terms of no. of politician articles as a proportion of country population
+ 
+ ![](https://github.com/TejasJagadeesh/data-512-a2/blob/master/table2.jpg)
+ 
+ **Observations:**
+ 
+- Once again, since we are ranking based on proportion computed on overall population, the countries with highest populations with English not as their primary language are expected to feature here.
+- Another expectation is also to see some under-developed countries with relativley limited access to internet. For example the African countries in the list above.
+
+**Table 3:** 10 highest-ranked countries in terms of no. of GA and FA-quality articles as a proportion of all articles about politicians from that country
+ 
+ ![](https://github.com/TejasJagadeesh/data-512-a2/blob/master/table3.jpg)
+ 
+ **Observations:**
+ 
+- It is very interesting to find North Korea and Saudi Arabia on top of this list considering the tight control on freedom of overall speech in both countries.
+- It is also interesting to see that USA has only 82 high quality articles out of a total of 1092. Though 82 is highest in the list, it is ranked 9 due to the ranking based on proportion.
+- To dig deeper, we'll need to understand the ORES API Scoring algorithm and find out what attributes contribute towards a higher score.
+ 
+ **Table 4:** All lowest-ranked countries in terms of no. of GA and FA-quality articles as a proportion of all articles about politicians from that country
+ 
+ ![](https://github.com/TejasJagadeesh/data-512-a2/blob/master/table4.jpg)
+ 
+ **Observations:**
+ 
+- All the above countries have the zero high quality articles.
+- The countries have been ranked based on the total no. of articles published. Country with highest no. of articles with not a single high quality article is ranked as 1.
+- It is interesting to see developed countries like Finland, Belgium and Switzerland have a good count of articles, but zero high quality ones. It is hard to speculate without understanding the scoring mechanism. If I had to hazard a guess, I would attribute the lack of high quality to the fact that English is not the primary language of these countries.
+
+**Analysis of Countries with most articles:**
+
+![](https://github.com/TejasJagadeesh/data-512-a2/blob/master/visualization.jpg)
+
+**Data Representation:**
+
+- X-axis encodes the population (millions).
+- Y-axis encodes the total no. of English articles related to politicians.
+- Hue encodes countries.
+- Size of the markers also encode population (millions) for better visual comparison
+
+**Observations:**
+
+- Though China and India have highest population, they don't have the highest no. of articles. The reason could be attributed to the fact that English is not the native language of these countries and they may have far more articles published about politicians in other medium for wider reach.
+- What stands out is the fact the China has more English articles related to politics as compared to USA especially considering how tightly controlled political speech in China is. Though articles per person would tip the scale in favor of USA, I was still expecting USA to be on top in total count as well.
+- Considering the fact that English is most widely spoken in the countries USA and UK and both have vibrant political systems, I was expecting most articles to be from one of them. To my surprise, France has the highest number even though English is not its native language.
+- Even though Australia is primarily English speaking country, I didn't expect it to stand way above USA in total count of articles, considering the fact the USA has a population more than 10 times that of population of Australia.
+- We don't see any country in the top 10 from the continents of Africa and South America. Brazil with a population of around 200 million is noticeable miss.
+
+# Conclusion:
+In each segment of anlaysis above the expected biases have been mentioned. Contrary findings and results have also been mentioned. One theory I have about some of the unexpected findings is that, while considering population in computation of proportion, we are using overall population. Instead we should fine tune it to include only the English speaking educated class with access to internet to level the playing field.
