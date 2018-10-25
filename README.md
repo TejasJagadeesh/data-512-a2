@@ -29,7 +29,7 @@ Three data sources are used in this project:
 
 In the above description, the third column name is mentioned as "last_edit". However, on inspection of the csv file, it is labeled as "revision_id" and not "last_edit".
 
-From the Source link, I downloaded the file "country.zip" and unzipped it to find the csv file "page_data.csv" in the "data" directory. As part of submission to GitHub, I have included the csv file in "raw" folder and excluded all other files related to the code to generate the same.
+From the Source link, I downloaded the file "country.zip" and unzipped it to find the csv file "page_data.csv" in the "data" directory. As part of submission to GitHub, I have included the csv file in "data/raw" folder and excluded all other files related to the code to generate the same.
 
 **License:** As stated in Source link, this dataset is released under the CC-BY-SA 4.0 (https://creativecommons.org/licenses/by/4.0/) license.
 
@@ -53,13 +53,14 @@ The dataset is arranged in tabluar form with one row for each country. There are
 - Geography - This column has the country names.
 - Population mid-2018 (millions) - This column has the population in millions.
 
-From the Source link, I downloaded the csv file "WPDS_2018_data.csv". As part of submission to GitHub, I have included the csv file in the "raw" folder.
+From the Source link, I downloaded the csv file "WPDS_2018_data.csv". As part of submission to GitHub, I have included the csv file in the "data/raw" folder.
 
 **License:** There is no information about Licensing in the Source link. However, since the actual source appears to be World Population Data website, referring that indicates that the data is copyrighted by Population Reference Bureau. However, there is no information available on this website on freedom of usage.
 
 **Code to Reproduce the Data:** The data can be downloaded as csv file from the link http://www.worldpopdata.org/table by selecting all countries in the filters.
 
 ## 3) Page Quality Score
+**Description:**
 We use Wikimedia REST API to access ORES (Objective Revision Evaluation Service) web service which is based on machine learning. All details about ORES can be found here - https://www.mediawiki.org/wiki/ORES and https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_context_revid_model and in the embedded links in these pages.
 
 ORES provides probability estimates for each of the following 6 categories. The category with the highest probability is returned as the score. The API also returns probabilities for all the categories. The following categories are ordered from best to worst.
@@ -72,6 +73,8 @@ ORES provides probability estimates for each of the following 6 categories. The 
 - Stub - Stub-class article
 
 While using the API, we specify the project as 'enwiki' and model as 'wp10' which uses structural characteristics to provide predictions. The API takes as input a set of revision IDs seprated by "|" character. It is recommended to fetch in batches of 50 revision ids at a time.
+
+**License:** There is not information provied about specific licensing for ORES Wikimedia API. Assumption is that it falls under the same generic license mentioned in the footer of ORES page - https://www.mediawiki.org/wiki/ORES. The license mentioned is Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) - https://creativecommons.org/licenses/by-sa/3.0/
 
 Sample request with two revision ids (34854345, 485104318), project as 'enwiki' and model as 'wp10' looks like below:
 
@@ -121,4 +124,39 @@ Sample response for the above request looks like below:
   }
 }
 
+# Output
+As part of the analysis, page quality score is fetched for each of the revision ids mentioned in the page dataset. This dataset is then combined with the population dataset by using country names as the matching keys. Rows for which matching keys are not found are discarded. Rows for which a quality score was not found are also discarded. This data is saved in csv format with the following columns. Each row corresponds to a single article.
 
+- country - names of countries as mentioned in the page dataset.
+- article_name - names of the wikipedia articles as mentioned in the page dataset.
+- revision_id - revision_ids as mentioned in the page dataset.
+- article_quality - quality scores fetched using the ORES Wikimedia REST API for each of the revision ids.
+- population - population data in millions upto mid 2018 as mentioned in the population dataset.
+
+
+# Directory Structure
+```
+data-512-a2/
+    |- data/
+        |- raw/
+            |- page_data.csv 				 // page data
+            |- WPDS_2018_data.csv    // population data
+    |- hcds-a2-bias.ipynb 				 // source code (Jupyter Notebook)
+    |- combined_data.csv   // Output file with combined data
+    |- LICENSE 						 // standard MIT License
+    |- table1.jpg          // Analysis output - table 1
+    |- table2.jpg          // Analysis output - table 2
+    |- table3.jpg          // Analysis output - table 3
+    |- table4.jpg          // Analysis output - table 4
+    |- table5.jpg          // Analysis output - table 5
+    |- visualization.jpg   // Visuaization for analysis of countries with most articles
+    |- README.md
+ ```
+ 
+ # Analysis
+ 
+ **Table 1:** 10 highest-ranked countries in terms of no. of politician articles as a proportion of country population
+ 
+ ![](https://github.com/TejasJagadeesh/data-512-a2/blob/master/table1.jpg)
+ 
+ 
