@@ -11,7 +11,7 @@ Goals of this project as stated in assignment link here - https://wiki.community
 - To write a short reflection on the project, that describes how this assignment helps me understand the causes and consequences of bias on Wikipedia.
 
 # Data Sources
-Two data sources are used in this project:
+Three data sources are used in this project:
 ## 1) Wikipedia Dataset
 **Source:** https://figshare.com/articles/Untitled_Item/5513449
 
@@ -26,6 +26,8 @@ Two data sources are used in this project:
 > Country codes are inconsistent. Where possible, they have been modified to match the country names found in http://www.prb.org/DataFinder/Topic/Rankings.aspx?ind=14 - but the PRB dataset contains nations not found in Wikipedia, and vice versa.
 > 
 > The actual recursion only went 2 levels deep into the category tree: someone listed as an Antiguan politician, say, is included - someone exclusively listed as an Antiguan politician who was assassinated is not.
+
+In the above description, the third column name is mentioned as "last_edit". However, on inspection of the csv file, it is labeled as "revision_id" and not "last_edit".
 
 From the Source link, I downloaded the file "country.zip" and unzipped it to find the csv file "page_data.csv" in the "data" directory. As part of submission to GitHub, I have included the csv file in "raw" folder and excluded all other files related to the code to generate the same.
 
@@ -56,3 +58,21 @@ From the Source link, I downloaded the csv file "WPDS_2018_data.csv". As part of
 **License:** There is no information about Licensing in the Source link. However, since the actual source appears to be World Population Data website, referring that indicates that the data is copyrighted by Population Reference Bureau. However, there is no information available on this website on freedom of usage.
 
 **Code to Reproduce the Data:** The data can be downloaded as csv file from the link http://www.worldpopdata.org/table by selecting all countries in the filters.
+
+## 3) Page Quality Score
+We use Wikimedia REST API to access ORES (Objective Revision Evaluation Service) web service which is based on machine learning. All details about ORES can be found here - https://www.mediawiki.org/wiki/ORES and additional links in this page.
+
+ORES provides probability estimates for each of the following 6 categories. The category with the highest probability is returned as the score. The API also returns probabilities for all the categories. The following categories are ordered from best to worst.
+
+- FA - Featured article
+- GA - Good article
+- B - B-class article
+- C - C-class article
+- Start - Start-class article
+- Stub - Stub-class article
+
+While using the API, we specify the project as 'enwiki' and model as 'wp10' which uses structural characteristics to provide predictions. The API takes as input a set of revision IDs seprated by "|" character. It is recommended to fetch in batches of 50 revision ids at a time.
+
+Sample request with two revision ids (34854345, 485104318) looks like below:
+https://ores.wikimedia.org/v3/scores/{project}/?models={model}&revids=34854345|485104318
+
