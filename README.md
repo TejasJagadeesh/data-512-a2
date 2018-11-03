@@ -3,11 +3,7 @@
 # Goal of the Project
 Goals of this project as stated in assignment link here - https://wiki.communitydata.cc/Human_Centered_Data_Science_(Fall_2018)/Assignments#A2:_Bias_in_data are:
 
-- To explore the concept of bias through data on Wikipedia articles - specifically, articles on political figures from a variety of countries. For this assignment, I will have to combine a dataset of Wikipedia articles with a dataset of country populations, and use a machine learning service called ORES to estimate the quality of each article.
-- To perform an analysis of how the coverage of politicians on Wikipedia and the quality of articles about politicians varies between countries.
-- To create a table that shows the countries with the greatest and least coverage of politicians on Wikipedia compared to their population.
-- To create a table that shows the countries with the highest and lowest proportion of high quality articles about politicians.
-- To write a short reflection on the project, that describes how this assignment helps me understand the causes and consequences of bias on Wikipedia.
+To analyze Wikipedia articles related to politicans and explore the presence of bias (if any). To perform this analysis I need to use the machine learning service called ORES which is a REST API that provides article quality score. The analysis should include the study and tabular summarizaitons of of top 10 articles with best quality scores and top 10 articles with lowest quality scores. 
 
 # Data Sources
 Three data sources are used in this project:
